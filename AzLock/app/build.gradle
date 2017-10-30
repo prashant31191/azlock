@@ -21,7 +21,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.azlock"
@@ -39,14 +39,18 @@ android {
     }
 }
 
+def playServicesVersion = "11.4.2";
+def androidSupportVersion = "26.0.0";
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation "com.android.support:appcompat-v7:$androidSupportVersion"
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.android.gms:play-services-ads:11.4.2'
+    implementation "com.google.android.gms:play-services-auth-api-phone:$playServicesVersion"
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
         transitive = true;
     }
